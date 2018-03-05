@@ -1,0 +1,296 @@
+.header_wraper{
+    padding: 0;
+    background-color: #e8e8e8;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_wraper nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-start;
+    margin-left: 10px;
+    
+}
+.header_wraper nav li{
+    font-family: 'Oswald', sans-serif;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.header_wraper nav li:first-child{
+    margin-left: 50px;
+}
+
+.header_wraper>nav>ul>li>a{
+    display: flex;
+    height: 60px;
+    padding: 10px 20px 10px 20px;
+    align-items: center;
+}
+.header_wraper>nav>ul>li:hover{
+    background-color: #d3d1d1;
+}
+.header_wraper nav li a{
+    color: black;
+}
+.main_navigation{
+    margin: 0;
+}
+.header_wraper nav .main_navigation ,.social_links{
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.header_wraper nav .main_navigation #about_us:active{
+    background-color: #d3d1d1;
+}
+.header_wraper nav .main_navigation .sub_main_nav{
+    padding: 0;
+    position: absolute;
+    top: 80px;
+    left: 269px;
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+    background-color: #e8e8e8;
+}
+.header_wraper nav .main_navigation .sub_main_open_nav{
+    visibility:visible;
+    opacity:1;
+    transition-delay:0s;
+
+}
+.header_wraper nav .main_navigation .sub_main_nav li{
+    margin: 0;
+    border: 1px solid #b9b9b9;
+    border-bottom: none;
+    padding-left: 10px;
+}
+.header_wraper nav .main_navigation .sub_main_nav li a{
+    display: flex;
+    height: 50px;
+    width: 180px;
+    align-items: center;
+}
+.header_wraper nav .main_navigation .sub_main_nav li:hover{
+        background-color: #d3d1d1;
+}
+.header_wraper nav .main_navigation .sub_main_nav li:last-child{
+    border-bottom: 1px solid #b9b9b9;
+}
+.header_wraper .social_links svg{
+    width: 35px;
+    height: 35px;
+    fill:#000000;
+}
+.header_wraper .social_links svg:hover{
+    fill: #e5973d;
+}
+
+.header_wraper .social_links li{
+    margin-right: 30px; 
+}
+
+/***********************БУРГЕР*****************************/
+#menu_trigger{
+    margin-right: 20px;
+    color: black;
+    display: none;
+    cursor: pointer;
+}
+#menu_trigger span em, #menu_trigger span em::after, #menu_trigger span em::before {
+  /* средняя палка бургера */
+  display: block;
+  position: relative;
+  height: 2px;
+  width: 22px;
+  background-color: #25283D;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+#menu_trigger span em {
+  margin: 6px auto 14px;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+}
+#menu_trigger span em::before, #menu_trigger span em::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+#menu_trigger span em::before {
+  /* this is the menu icon top line */
+  -webkit-transform: translateY(-6px);
+      -ms-transform: translateY(-6px);
+          transform: translateY(-6px);
+}
+#menu_trigger span em::after {
+  /* this is the menu icon bottom line */
+  -webkit-transform: translateY(6px);
+      -ms-transform: translateY(6px);
+          transform: translateY(6px);
+}
+
+/*БУРГЕР В ФОРМЕ КРЕСТИКА*/
+#menu_trigger .nav-open em {
+  /* transform menu icon into a 'X' icon */
+  background-color: rgba(255, 255, 255, 0);
+}
+#menu_trigger .nav-open em::before {
+  /* rotate top line */
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+#menu_trigger .nav-open em::after {
+  /* rotate bottom line */
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/*UBOUT_US SPAN */
+#about_us .close_arrow{
+    display: block;
+    position: relative;
+    bottom: 4px;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #444;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+#about_us .open_arrow{
+    display: block;
+    position: relative;
+    top:4px;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #444;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+@media only screen and (max-width: 1090px) {
+    #menu_trigger{
+        display: block;
+    }
+    .header_wraper nav .main_navigation{
+        position: absolute;
+        flex-direction: column;
+        /*right: -300px;*/
+        right: 0;
+        visibility:hidden;
+        opacity:0;
+        transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+        top: 80px;
+        width: 280px;
+        background-color: #e8e8e8; 
+        transition: .6s;
+    }
+    .header_wraper>nav>.main_navigation>li:first-child{
+        border-top: 1px solid #b9b9b9;
+    }
+    .header_wraper nav>.main_navigation>li{
+        margin-left:0;
+        border-bottom: 1px solid #b9b9b9;
+        border-left: 1px solid #b9b9b9;
+    }
+    .header_wraper nav .main_navigation li:hover{
+        background-color: #d3d1d1;
+    }
+    .header_wraper>nav>.main_navigation>li>a{
+        display: flex;
+        align-items: center;
+        padding: 6px 20px 6px 20px;
+    }
+    .header_wraper nav .main_navigation .close_sub_nav{
+        display: none;
+    }
+    .header_wraper nav .open_mobile_main_navigation{
+        right: 0;
+        visibility:visible;
+        opacity:1;
+        transition-delay:0s;
+    }
+    .header_wraper nav .main_navigation .sub_main_nav{
+        position: inherit;
+        border-left: none;
+        visibility:visible;
+        opacity:1;
+    }
+    /*ДОБАВИТЬ В JS ЧТОБЫ САБМЕНЮ ТОЖЕ ПОЛНОСТЬЮ СКРЫВАЛОСЬ*/
+    .header_wraper nav .main_navigation .sub_main_nav li{
+        border-left: none;
+        border-right: none;
+        padding-left: 40px;
+    }
+    .header_wraper nav .main_navigation .sub_main_nav li:last-child{
+        border-bottom: none;
+    }
+    .header_wraper nav .main_navigation .sub_main_nav li a{
+        width: 100%;
+        
+    }
+    .header_wraper .social_links svg{
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
