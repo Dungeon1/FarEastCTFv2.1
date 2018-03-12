@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
     <title>FarEastCTF</title>
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/header_style.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal_window.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400" rel="stylesheet">
     
 </head>
@@ -80,10 +82,111 @@
     
     <section_1.5>
         <div class="authorization">
-            <button class="authorization_buttom">ХОЧУ ВОЙТИ!</button>
-            <button class="registration_buttom">РЕГИСТРАЦИЯ!</button>
+           <!--
+            <button class="authorization_buttom md-trigger" data-modal="modal_authorization">ХОЧУ ВОЙТИ!</button>
+            <button class="registration_buttom md-trigger" data-modal="modal_reg">РЕГИСТРАЦИЯ!</button>
+            -->
+            <!--<div class="main-nav">-->
+            <div class="authorization-nav">
+			    <ul>
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="#0">Авторизация</a></li>
+				<li><a class="cd-signup" href="#0">Регистрация</a></li>
+			</ul>
+		    </div>
         </div>
     </section_1.5>
+    
+    <!--MODAL WINDOW-->
+<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Авторизация</a></li>
+				<li><a href="#0">Регистрация</a></li>
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signin-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<!--<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me">Remember me</label>
+					</p>-->
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Войти">
+					</p>
+				</form>
+				
+				<p class="cd-form-bottom-message"><a href="#0">Забыли пароль?</a></p>
+			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signup-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<!--<p class="fieldset">
+						<input type="checkbox" id="accept-terms">
+						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+					</p>-->
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Создать аккаунт">
+					</p>
+				</form>
+
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Забыли пароль? Напишите E-mail, который вы вводили при регистрации и мы отправим вам новый временный пароль.</p>
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Отправить заявку">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Вернуться к авторизации</a></p>
+			</div> <!-- cd-reset-password -->
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
+    
+    <!--MODAL WINDOW-->
+    
     
     <section_2>
         <div class="today_competition">
@@ -135,14 +238,14 @@
         <div class="last_news">
             <h1>ПОСЛЕДНИЕ НОВОСТИ</h1>
             <div class="contener_news_box">
-                <div class="news_box">
+                <a href="#" class="news_box">
                     <img src="img/ctf_genesis.png" alt="" height="200px" width="320px">
                     <div class="news_text">
                         <h2>Обучающий семинар по подготовке к Олимпиаде CTF Genesis</h2>
                         <h4>17 февраля 2018</h4>
                         <h3>На базе ПИ ТОГУ состоялся первый обучающий семинар по подготовке к Олимпиаде CTF Genesis</h3>
                     </div>
-                </div>
+                </a>
                 
                 <div class="news_box">
                     <img src="img/ructfe.png" alt="" height="200px" width="320px">
@@ -241,21 +344,24 @@
         </div>
     </section_5>
     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<script src='js/jquery-3.3.1.js'></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src='js/jquery-3.3.1.js'></script>
+<!--Меню-->
 <script type="text/javascript" src="js/menu.js"></script>
+<!--modal window-->
+<script type="text/javascript" src="js/modal_window.js"></script>
 <!---Плавная прокрутка до якоря-->
-<script>
-          $(document).ready(function(){
-            $("a[href*=#]").on("click", function(e){
-                var anchor = $(this);
-                $('html, body').stop().animate({
-                    scrollTop: $(anchor.attr('href')).offset().top
-                }, 777);
-                e.preventDefault();
-                return false;
-            });
-          });
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("a").on("click", function(e){
+            var anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top
+            }, 777);
+            e.preventDefault();
+            return false;
+        });
+    });
 </script>
 <!--Исчезновение кнопки Up при прокрутке-->
 <script type="text/javascript">
@@ -275,6 +381,7 @@
 </script>
 <script type="text/javascript" src="js/gallery.js"></script>
 <script type="text/javascript" src="js/vanilla-tilt.min.js"></script>
+
 
 </body>
 </html>

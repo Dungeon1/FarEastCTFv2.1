@@ -92,9 +92,35 @@ section_1 .main_page .main_page_text p{
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    padding: 30px 0 20px 0;
 }
-.authorization_buttom, .registration_buttom{
+.authorization-nav {
     display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.authorization-nav ul {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    justify-content:space-around;
+    align-items: center;
+}
+.authorization-nav ul li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.authorization_buttom, .registration_buttom, .authorization-nav ul li{
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 70px; 
@@ -106,12 +132,10 @@ section_1 .main_page .main_page_text p{
     color: white;
     border: none;
 }
-.authorization_buttom:hover, .registration_buttom:hover{
+.authorization_buttom:hover, .registration_buttom:hover,
+.authorization-nav>ul>li:hover{
     background-color: #075a5a;
-
 }
-
-
 
 /*section_2*/
 section_2 .today_competition{
@@ -287,12 +311,14 @@ section_4 .last_news{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .last_news .contener_news_box .news_box{
     display: flex;
     flex-direction: column;
     width: 320px;
     margin-right: 30px;
+    margin-bottom: 20px;
 }
 .last_news .contener_news_box .news_box:last-child{
     margin-right: 0;
@@ -302,6 +328,7 @@ section_4 .last_news{
     flex-direction: column;
     justify-content: flex-start;
     height: auto;
+    color:black;
 }
 .news_text h2,h3,h4{
     margin: 0;
@@ -432,7 +459,21 @@ section_5 .map{
     height: 70vh;
 }
 
+/*****************section_news***************************/
 
+section_news .news{
+    width: 100vw;
+    height: auto;
+}
+section_news .news img{
+    width: 100vw;
+    height: 60vh
+}
+section_news .news h1{
+    
+}
+
+/*****************section_news***************************/
 
 @media only screen and (max-width: 1090px) {
     section_1 .main_page{
@@ -450,6 +491,9 @@ section_5 .map{
     }
     section_1 .main_page .main_page_text p{
         text-align: center;
+    }
+    .authorization-nav ul {
+        flex-direction: column;
     }
     section_2 .today_competition .left_image{
         display: none;
@@ -519,6 +563,9 @@ section_5 .map{
     }
     
 }
+
+
+
     
 
 @media only screen and (max-width: 550px) {
