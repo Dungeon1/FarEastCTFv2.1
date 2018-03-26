@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FarEastCTF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header_style.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modal_window.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tabsPrivateRoomAdmin.css') }}" type="text/css"/>
+   
+</head>
+  
+  <body>
+  <div id="main_up"></div><!--якорь-->
+    <!--/header-->
+    <a href="#main_up" id="up"><div></div></a><!--якорная ссылка-->
+  
+  
+  
+  
+   
+      {% block body %}
+      {% endblock %}
+    
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src='js/jquery-3.3.1.js'></script>
+<!--Меню-->
+<script type="text/javascript" src="js/menu.js"></script>
+<!--modal window-->
+<script type="text/javascript" src="js/modal_window.js"></script>
+<!---Плавная прокрутка до якоря-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("a").on("click", function(e){
+            var anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top
+            }, 777);
+            e.preventDefault();
+            return false;
+        });
+    });
+</script>
+<!--Исчезновение кнопки Up при прокрутке-->
+<script type="text/javascript">
+    $(function() {
+        $(window).scroll(function() {
+            if($(this).scrollTop() != 0) {
+                $('#up').fadeIn();
+            } 
+            else {
+                $('#up').fadeOut();
+            }
+            });
+        $('#up').click(function() {
+        $('body,html').animate({scrollTop:0},1000);
+        });
+    });
+</script>
+<script type="text/javascript" src="js/gallery.js"></script>
+<script type="text/javascript" src="js/vanilla-tilt.min.js"></script>
+
+</body>
+</html>

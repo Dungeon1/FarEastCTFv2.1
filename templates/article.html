@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'includes/_another_header.html' %}
+    <section_1 id="main">
+         <div class="page_news_list main_page">
+             <div class="main_page_text">
+                <div class="fareastctf_h1">
+                   <h1><span>FAREAST</span><span>CTF</span></h1>
+                </div>
+                <p>Первая на Дальнем Востоке<br>площадка для проведения чемпионатов<br>по компьютерной безопасности</p>
+             </div>
+         </div>   
+    </section_1> 
+    
+
+    <section_news_area>
+        <div class="news_area">
+            <div class="news_image">
+                <img src="/article_img/{{article.main_img}}" alt="">
+            </div>
+            
+            <div class="news_text">
+              <div class="news_text_contener">
+                <h4>{{article.data}}</h4>
+                <h2>{{article.header}}</h2>
+                <pre>{{article.article_text}}</pre>
+              </div>
+            </div>
+            
+            
+        </div>    
+    </section_news_area>
+    
+    <section_4>
+        <div class="last_news">
+            <h1>ДРУГИЕ НОВОСТИ</h1>
+            <div class="contener_news_box">
+                {%for art in other_articles%}
+                <a href="/article/{{art.id}}" class="news_box">
+                    <img src="article_img/{{art.main_img}}" alt="" height="200px" width="320px">
+                    <div class="news_text">
+                        <h2>{{art.header}}</h2>
+                        <h4>{{art.data}}</h4>
+                        <h3>{{art.article_short_text}}</h3>
+                    </div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+    </section_4>
+
+{% endblock %}

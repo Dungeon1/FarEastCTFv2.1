@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {%if user.isAdmin%}
+
+<form role="form" action="/edit/{{article.id}}" method="post" enctype="multipart/form-data">
+   
+    <h3>Название статьи</h3>
+    <textarea rows="1" cols="45" name="new_article_name">{{article.header}}</textarea>
+    
+    <h3>Короткое содержание статьи</h3>
+    <textarea rows="5" cols="45" name="new_short_articles">{{article.article_short_text}}</textarea>
+    
+    <h3>Содержание статьи</h3>
+    <textarea rows="10" cols="45" name="new_articles">{{article.article_text}}</textarea>
+    
+    <h3>Главная картинка новости</h3>
+    <h3>Имя:{{article.main_img}} </h3>
+    <img src="/article_img/{{article.main_img}}" alt="" height="200px" width="320px">
+    <input name="main_img_article" type="file"/>
+    
+    <h3>Дата публикации {{article.data}}</h3>
+    <input type="text" name="data_article" value="{{article.data}}">
+    
+    <input type="submit" name="submit" id="submit" value="Изменить!">
+</form>   
+
+ 
+        
+    {%else%}
+        Пошел вон!
+    {%endif%}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{%if not user%}
+    ТЫ не зареган и попал сюда читерским путем!
+{%else%}
+    {%if user.isAdmin%}
+        {% include 'includes/_another_header.html' %}
+        Личный кабинет администратора {{user.username}}
+        {% include 'includes/_AdminBarArticleSettings.html' %}
+
+    {%endif%}
+    {%if not user.isAdmin%}
+        {% include 'includes/_another_header.html' %}
+        это личный кабинет пользователя {{user.username}}
+    {%endif%}
+{%endif%}
+
+{% endblock %}

@@ -1,0 +1,135 @@
+<div class="containerSettings">
+        <h1>Управление статьями</h1>
+        <div class="tabs">
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1" title="Wordpress">Add new article</label>
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2" title="Windows">Delete/Upgrade article</label>
+            <input id="tab3" type="radio" name="tabs">
+            <label for="tab3" title="HTML5">Доб. анонса чемпионата</label>
+            <input id="tab4" type="radio" name="tabs">
+           <label for="tab4" title="CSS3">Партнеры</label>
+            <section id="content-tab1">
+                <form role="form" action="/addArticle" method="post" enctype="multipart/form-data">
+                   <h3>Введите название статьи</h3>
+                   <textarea rows="1" cols="45" name="new_article_name"></textarea>
+                   
+                   <h3>Введите короткое содержание статьи</h3>
+                   <textarea rows="5" cols="45" name="new_short_articles"></textarea>
+                   
+                   <h3>Введите содержание статьи</h3>
+                   <textarea rows="10" cols="45" name="new_articles"></textarea>
+                   
+                   <h3>Выберите главную картинку новости</h3>
+			       <input name="main_img_article" type="file"/>
+                  
+                   <h3>Дата публикации</h3>
+                   <input type="text" name="data_article" required="required">
+                   
+                   <input type="submit" name="submit" id="submit" value="Добавить!">
+                </form> 
+                
+            </section>
+            <section id="content-tab2">
+                    <h1>Список всех статей</h1>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    {%for article in articles%}
+                        <tr>
+                            <td>{{article.id}}</td>
+                            <td>{{article.header}}</td>
+                            <td>{{article.article_short_text}}</td>
+                            <td><a href="/deleteArticles/{{article.id}}"> Удалить</a></td>
+                            <td><a href="/editArticles/{{article.id}}"> Изменить</a></td>
+                    {%endfor%}
+                        </tr>
+                    </table>
+            </section>
+            <section id="content-tab3">
+                
+                
+                <form role="form" action="/addTodayComp" method="post" enctype="multipart/form-data">
+                   <h3>Введите имя поста</h3>
+                   <textarea rows="1" cols="45" name="new_article_name"></textarea>
+                   
+                   <h3>Введите текст поста</h3>
+                   <textarea rows="10" cols="45" name="new_articles"></textarea>
+                   
+                   <h3>Выберите картинку поста</h3>
+			       <input name="main_img_article" type="file"/>
+                  
+                   <h3>Наименование для кнопки</h3>
+                   <input type="text" name="data_article" required="required">
+                   
+                   <input type="submit" name="submit" id="submit" value="Добавить!">
+                </form>
+                
+                
+            </section>
+            <section id="content-tab4">
+                <h1>Список всех партнеров</h1>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Удалить</th>
+                            <th>Изменить высоту</th>
+                            <th>Изменить ширину</th>
+                        </tr>
+                    {%for partner in partners%}
+                        <tr>
+                            <td>{{partner.id}}</td>
+                            <td>{{partner.name}}</td>
+                            <td><a href="/deletePartner/{{partner.id}}"> Удалить</a></td>
+                            <td>
+                            
+                                <form role="form" action="/EditHeight_partner/{{partner.id}}" method="post" enctype="multipart/form-data">
+
+                                    <input type="text" name="partner_height" required="required" placeholder="{{partner.height}}">
+
+                                    <input type="submit" name="submit" id="submit" value="Изменить!" >
+                                </form> 
+                            
+                            </td>
+                            <td>
+                            
+                                <form role="form" action="/EditWidth_partner/{{partner.id}}" method="post" enctype="multipart/form-data">
+
+                                    <input type="text" name="partner_width" required="required" placeholder="{{partner.width}}">
+
+                                    <input type="submit" name="submit" id="submit" value="Изменить!">
+                                </form> 
+                            
+                            </td>
+                    {%endfor%}
+                        </tr>
+                    </table>
+                    
+                    <h1>Добавление партнеров</h1>
+                <form role="form" action="/addPartners" method="post" enctype="multipart/form-data">
+                    
+                    <h3>Введите название компании</h3>
+                    <input type="text" name="name_partner" required="required">
+                   
+                    <h3>Введите ссылку на компанию</h3>
+                    <input type="text" name="link_partner" required="required">
+                    
+                    <h3>Выберите логотип компании</h3>
+			        <input name="logo_partners" type="file"/>
+                   
+                    <h3>Высота логотипа</h3>
+			        <input type="text" name="height" required="required">
+                   
+                    <h3>Ширина логотипа</h3>
+			        <input type="text" name="width" required="required">
+
+                    <input type="submit" name="submit" id="submit" value="Добавить!">
+                </form> 
+            </section>
+        </div>
+</div>

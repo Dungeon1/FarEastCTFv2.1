@@ -20,12 +20,12 @@ input, input:after, input:before{
   max-width: 100%;
 }
 
-input, textarea {
+input {
   font-family: "PT Sans", sans-serif;
   font-size: 16px;
   font-size: 1rem;
 }
-input::-ms-clear, textarea::-ms-clear {
+input::-ms-clear{
   display: none;
 }
 

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block body %}
+       
+{% include 'includes/_another_header.html' %}
+
+      <section_1 id="main">
+         <div class="page_news_list main_page">
+             <div class="main_page_text">
+                <div class="fareastctf_h1">
+                   <h1><span>FAREAST</span><span>CTF</span></h1>
+                </div>
+                <p>Первая на Дальнем Востоке<br>площадка для проведения чемпионатов<br>по компьютерной безопасности</p>
+             </div>
+         </div>   
+    </section_1> 
+    
+     <section_1.5>
+        <div class="autor_news_list authorization">
+           <!--
+            <button class="authorization_buttom md-trigger" data-modal="modal_authorization">ХОЧУ ВОЙТИ!</button>
+            <button class="registration_buttom md-trigger" data-modal="modal_reg">РЕГИСТРАЦИЯ!</button>
+            -->
+            <!--<div class="main-nav">-->
+            <div class="authorization-nav">
+			    <ul>
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="#0">Авторизация</a></li>
+				<li><a class="cd-signup" href="#0">Регистрация</a></li>
+			</ul>
+		    </div>
+        </div>
+    </section_1.5> 
+      
+      
+       <section_4>
+        <div class="last_news">
+            <h1>НАШИ НОВОСТИ</h1>
+            <div class="contener_news_box">
+               
+               {%for article in articles%}
+                <a href="/article/{{article.id}}" class="news_box">
+                    <img src="article_img/{{article.main_img}}" alt="" height="200px" width="320px">
+                    <div class="news_text">
+                        <h2>{{article.header}}</h2>
+                        <h4>{{article.data}}</h4>
+                        <h3>{{article.article_short_text}}</h3>
+                    </div>
+                </a>
+                {%endfor%}
+                
+            </div>
+
+        </div>
+    </section_4>
+    
+   
+{% endblock %}
+

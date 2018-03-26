@@ -3,11 +3,14 @@ jQuery(document).ready(function($){
 		formLogin = formModal.find('#cd-login'),
 		formSignup = formModal.find('#cd-signup'),
 		formForgotPassword = formModal.find('#cd-reset-password'),
+        //переключатели окон в модалке
 		formModalTab = $('.cd-switcher'),
         //Переключающиеся вкладки
 		tabLogin = formModalTab.children('li').eq(0).children('a'),
 		tabSignup = formModalTab.children('li').eq(1).children('a'),
+        //ссылка забыли пароль?
 		forgotPasswordLink = formLogin.find('.cd-form-bottom-message a'),
+        //ссылка вернуться к авторизации
 		backToLoginLink = formForgotPassword.find('.cd-form-bottom-message a'),
 		mainNav = $('.authorization-nav');
 
@@ -90,14 +93,14 @@ jQuery(document).ready(function($){
 	}
 
 	//REMOVE THIS - it's just to show error messages 
-	formLogin.find('input[type="submit"]').on('click', function(event){
+	/*formLogin.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
 		formLogin.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
 	});
 	formSignup.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
 		formSignup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
+	});*/
 
 
 	//IE9 placeholder fallback
