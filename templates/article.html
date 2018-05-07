@@ -2,7 +2,7 @@
 
 {% block body %}
 {% include 'includes/_another_header.html' %}
-    <section_1 id="main">
+<!--    <section_1 id="main">
          <div class="page_news_list main_page">
              <div class="main_page_text">
                 <div class="fareastctf_h1">
@@ -12,6 +12,7 @@
              </div>
          </div>   
     </section_1> 
+-->
     
 
     <section_news_area>
@@ -38,7 +39,7 @@
             <div class="contener_news_box">
                 {%for art in other_articles%}
                 <a href="/article/{{art.id}}" class="news_box">
-                    <img src="article_img/{{art.main_img}}" alt="" height="200px" width="320px">
+                    <img src="/article_img/{{art.main_img}}" alt="" height="200px" width="320px">
                     <div class="news_text">
                         <h2>{{art.header}}</h2>
                         <h4>{{art.data}}</h4>

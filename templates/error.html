@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'includes/_another_header.html' %}
+    <section_1 id="main">
+         <div class="page_news_list main_page">
+             <div class="main_page_text">
+                <div class="fareastctf_h1">
+                   <h1><span>FAREAST</span><span>CTF</span></h1>
+                </div>
+                <p>Первая на Дальнем Востоке<br>площадка для проведения чемпионатов<br>по компьютерной безопасности</p>
+             </div>
+         </div>   
+    </section_1> 
+    
+    <section_error>
+        <div class="error">
+            <h1>{{message}}</h1>
+        </div>
+        <section_1.5>
+        <div class="authorization">
+           <!--
+            <button class="authorization_buttom md-trigger" data-modal="modal_authorization">ХОЧУ ВОЙТИ!</button>
+            <button class="registration_buttom md-trigger" data-modal="modal_reg">РЕГИСТРАЦИЯ!</button>
+            -->
+            <!--<div class="main-nav">-->
+            {%if not user%}
+            <div class="authorization-nav">
+			    <ul>
+				<!-- inser more links here -->
+				<li><a href="#0" class="cd-signin" >Авторизация</a></li>
+				<li><a href="#0" class="cd-signup" >Регистрация</a></li>
+			</ul>
+		    </div>
+           {%endif%}
+        </div>
+    </section_1.5>
+     {% include 'includes/_modal_window.html' %}
+    </section_error>
+
+
+    
+
+
+
+{% endblock %}

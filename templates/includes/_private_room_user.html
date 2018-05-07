@@ -1,0 +1,72 @@
+ <section_pr_room>
+        <div class="pr_room_wraper">
+            <div class="pr_room_up">
+                <div class="pr_room_left">
+                   <div class="pr_room_logo">
+                       <img src="avatar_img/{{user.avatar_num}}.png" alt="">
+                   </div> 
+                   <div class="info_user">
+                       <h1>Личный кабинет пользователя: {{user.username}}</h1>
+                       <h1>Зарегистрированный email: {{user.email}}</h1>
+                      <!-- <h1>Хочешь чтобы тебе отправлялась на почту информация о наших новых евентах?</h1>
+                       <div class="checkbox_contener">
+                            <input class="checkbox" type="checkbox" id="codepen"/>
+                            <label for="codepen"><span></span></label>
+                       </div> -->
+                   </div> 
+                </div>
+                <div class="pr_room_right">
+                    <p>Приветствую тебя, {{user.username}}! Как видешь, сейчас тут мало функционала, но в скором он появится! Здесь будет, например, твоя статистика решения тасков на тренировочной площадке и что нибудь еще</p>
+                    <p>Если ты нашел баг на сайте, или есть предложения по его улучшению, то пиши нам: fareastctf@mail.ru</p>
+                    
+                </div>
+            </div>
+            <div class="down_links">
+                <div class="containerSettings">
+                    <div class="tabs">  
+                        <input id="tab1" type="radio" name="tabs" checked>
+                        <label for="tab1" title="Wordpress">Изменить пароль</label>
+                                                                   
+                        <input id="tab2" type="radio" name="tabs">
+                        <label for="tab2" title="Windows">Статистика на тренировочной площадке</label>
+                        
+                    <section id="content-tab1">
+                        <form class="cd-form" role="form" action="/refresh_pass/submit" method="post">
+                                <p class="fieldset">
+                                    <label class="image-replace cd-password" for="signup-password">Введите старый пароль:</label>
+                                    <input class="full-width has-padding has-border" id="signup-password" type="password" name="old_pass"  placeholder="Введите старый пароль">
+                                    <a href="#0" class="hide-password">Show</a>
+                                    <span class="cd-error-message">Error message here!</span>
+                                </p>
+                                <p class="fieldset">
+                                    <label class="image-replace cd-password" for="signup-password">Введите новый пароль</label>
+                                    <input class="full-width has-padding has-border" id="signup-password" type="password" name="new_pass"  placeholder="Введите новый пароль">
+                                    <a href="#0" class="hide-password">Show</a>
+                                    <span class="cd-error-message">Error message here!</span>
+                                </p>
+                                <p class="fieldset">
+                                    <label class="image-replace cd-password" for="signup-password">Повторите чтобы не ошибиться</label>
+                                    <input class="full-width has-padding has-border" id="signup-password" type="password" name="repeat_new_pass"  placeholder="Повторите чтобы не ошибиться">
+                                    <a href="#0" class="hide-password">Show</a>
+                                    <span class="cd-error-message">Error message here!</span>
+                                </p>
+                                
+                                    <div class="g-recaptcha" data-sitekey="{{SITE_KEY}}"></div>
+
+                                <p class="fieldset">
+                                    <input class="full-width has-padding" type="submit" value="Сменить пароль">
+                                </p>
+				            </form>
+                        </section>
+
+                        
+                        <section id="content-tab2">
+                            <h1>Нет тренировочной площадки, нет статистики :) Но скоро будет!</h1>
+                            
+                        </section>
+
+                    </div>
+                </div>
+            </div><!--Down_links-->
+        </div>
+    </section_pr_room>   

@@ -1,0 +1,87 @@
+
+.checkbox {
+  display: none;
+}
+
+.checkbox + label {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 7px;
+  background: #dfdbdf;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+.checkbox + label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 44px;
+  width: 35px;
+  height: 35px;
+  background: inherit;
+  border-radius: 35px;
+  box-shadow: 0 0 0 6px #fff;
+  -webkit-transform: translate(-130%, -50%);
+          transform: translate(-130%, -50%);
+  -webkit-transition: all 350ms ease-out;
+  transition: all 350ms ease-out;
+}
+.checkbox + label > span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 51px;
+  width: 45px;
+  height: 35px;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  -webkit-transition: all 100ms 0ms ease-out;
+  transition: all 100ms 0ms ease-out;
+}
+.checkbox + label > span:before, .checkbox + label > span:after {
+  content: "";
+  position: absolute;
+  background: #fff;
+}
+.checkbox + label > span:before {
+  top: 21px;
+  left: 0px;
+  width: 22px;
+  height: 9px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.checkbox + label > span:after {
+  top: 12px;
+  left: 10px;
+  width: 39px;
+  height: 9px;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.checkbox:checked + label {
+  height: 70px;
+  background: #417777;
+  border-radius: 60px;
+}
+.checkbox:checked + label:before {
+  left: 185px;
+  background: #fff;
+}
+.checkbox:checked + label > span {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  -webkit-transition: all 200ms 120ms ease-out;
+  transition: all 200ms 120ms ease-out;
+}
+
+.checkbox:not(:checked) + label:hover:before {
+  -webkit-transform: translate(-50%, -50%) scale(1.05);
+          transform: translate(-50%, -50%) scale(1.05);
+}

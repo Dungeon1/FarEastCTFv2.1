@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'includes/_another_header.html' %}
+    <section_1 id="main">
+         <div class="page_news_list main_page">
+             <div class="main_page_text">
+                <div class="fareastctf_h1">
+                   <h1><span>FAREAST</span><span>CTF</span></h1>
+                </div>
+                <p>Первая на Дальнем Востоке<br>площадка для проведения чемпионатов<br>по компьютерной безопасности</p>
+             </div>
+         </div>   
+    </section_1> 
+    
+    <section_error>
+        <div class="error">
+            <h1>{{message}}</h1>
+        </div>
+        <section_1.5>
+        
+        {%if buttom=='home'%}
+            <div class="main_page_buttom">
+                <a href="/">Вернуться на главную страницу</a>
+            </div>
+        {%endif%}
+        
+        {%if user%}
+            {%if buttom=='pr_room'%}
+                <div class="main_page_buttom">
+                    <a href="/private_room">Вернуться в личный кабинет</a>
+                </div>
+            {%endif%}
+        {%endif%}
+        
+        
+        
+
+
+
+    
+
+
+
+{% endblock %}

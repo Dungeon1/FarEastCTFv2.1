@@ -15,9 +15,9 @@
 					</p>
 
 					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password" name="password" required="required">
-						<a href="#0" class="hide-password">Hide</a>
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" name="password" required="required">
+						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
@@ -25,64 +25,52 @@
 						<input type="checkbox" id="remember-me" checked>
 						<label for="remember-me">Remember me</label>
 					</p>-->
-
+                        
 					<p class="fieldset">
 						<input class="full-width" type="submit" value="Войти" name="submit">
 					</p>
 				</form>
 				
-				<p class="cd-form-bottom-message"><a href="#0">Забыли пароль?</a></p>
+				
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- Регистрация -->
-				<form class="cd-form" role="form" action="/register/submit" method="post">
+				<form role="form" action="/register/submit" method="post" class="cd-form" id="registrForm">
+				
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
 						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" name="username" required="required">
-						<span class="cd-error-message">Error message here!</span>
+						<span class="cd-error-message" id="cd-error-message-username-signup"></span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="text" placeholder="E-mail" name="email" required="required">
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" name="email" required="required">
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password" name="password" required="required">
-						<a href="#0" class="hide-password">Hide</a>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" name="password" required="required">
+						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
-
 					<!--<p class="fieldset">
 						<input type="checkbox" id="accept-terms">
 						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
-					</p>-->
-
+					</p>
+                     -->
+                    <div class="captcha">
+                        <div class="g-recaptcha" data-sitekey="{{SITE_KEY}}"></div>
+                    </div>
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Создать аккаунт" name="submit" id="submit">
+						<input class="full-width has-padding" type="submit" value="Создать аккаунт" name="submit" id="submit_reg" no-disabled>
 					</p>
 				</form>
 
 			</div> <!-- cd-signup -->
 
-			<div id="cd-reset-password"> <!-- Сброс пароля -->
-				<p class="cd-form-message">Забыли пароль? Напишите E-mail, который вы вводили при регистрации и мы отправим вам новый временный пароль.</p>
-				<form class="cd-form" role="form" action="/refresh_pass/submit" method="post">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail" name="email" required="required">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Отправить заявку">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message"><a href="#0">Вернуться к авторизации</a></p>
-			</div> <!-- cd-reset-password -->
+			
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
     

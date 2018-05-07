@@ -1,27 +1,45 @@
 <div class="containerSettings">
-        <h1>Управление статьями</h1>
+        <h1>Управление сайтом</h1>
         <div class="tabs">
             <input id="tab1" type="radio" name="tabs" checked>
             <label for="tab1" title="Wordpress">Add new article</label>
+            
             <input id="tab2" type="radio" name="tabs">
             <label for="tab2" title="Windows">Delete/Upgrade article</label>
+            
             <input id="tab3" type="radio" name="tabs">
             <label for="tab3" title="HTML5">Доб. анонса чемпионата</label>
+            
             <input id="tab4" type="radio" name="tabs">
-           <label for="tab4" title="CSS3">Партнеры</label>
+            <label for="tab4" title="CSS3">Партнеры</label>
+            
+            <input id="tab5" type="radio" name="tabs">
+            <label for="tab5" title="CSS3">Документы</label>
+            
+            <input id="tab6" type="radio" name="tabs">
+            <label for="tab6" title="CSS3">О нас</label>
+            
+            <input id="tab7" type="radio" name="tabs">
+            <label for="tab7" title="CSS3">Контакты админов</label>
+            
+            <input id="tab8" type="radio" name="tabs">
+            <label for="tab8" title="CSS3">Список пользователей</label>
+            
+            
+            
             <section id="content-tab1">
                 <form role="form" action="/addArticle" method="post" enctype="multipart/form-data">
                    <h3>Введите название статьи</h3>
-                   <textarea rows="1" cols="45" name="new_article_name"></textarea>
+                   <textarea rows="1" cols="45" name="new_article_name" required></textarea>
                    
                    <h3>Введите короткое содержание статьи</h3>
-                   <textarea rows="5" cols="45" name="new_short_articles"></textarea>
+                   <textarea rows="5" cols="45" name="new_short_articles" required></textarea>
                    
                    <h3>Введите содержание статьи</h3>
-                   <textarea rows="10" cols="45" name="new_articles"></textarea>
+                   <textarea rows="10" cols="45" name="new_articles" required></textarea>
                    
                    <h3>Выберите главную картинку новости</h3>
-			       <input name="main_img_article" type="file"/>
+			       <input required name="main_img_article" type="file"/>
                   
                    <h3>Дата публикации</h3>
                    <input type="text" name="data_article" required="required">
@@ -50,27 +68,82 @@
                         </tr>
                     </table>
             </section>
+            
+            
+            
             <section id="content-tab3">
-                
-                
+            {%if not today_comp%}
+                <h1>Таблица чемпионата пуста</h1>
+                <h1>Добавление анонса соревнования</h1>
                 <form role="form" action="/addTodayComp" method="post" enctype="multipart/form-data">
+                   <h3>Наименование чемпионата на главной заставке</h3>
+                   <input type="text" name="todayCompName" required="required">
+                
                    <h3>Введите имя поста</h3>
-                   <textarea rows="1" cols="45" name="new_article_name"></textarea>
+                   <textarea rows="1" cols="45" name="header_comp" required></textarea>
                    
                    <h3>Введите текст поста</h3>
-                   <textarea rows="10" cols="45" name="new_articles"></textarea>
+                   <textarea rows="10" cols="45" name="text_comp" required></textarea>
                    
                    <h3>Выберите картинку поста</h3>
-			       <input name="main_img_article" type="file"/>
+			       <input required name="image_comp" type="file"/>
+                 
+                   <h3>Высота картинки в пикселях</h3>
+			       <input required name="image_height" type="number"/>
                   
                    <h3>Наименование для кнопки</h3>
-                   <input type="text" name="data_article" required="required">
+                   <input type="text" name="buttom_name" required="required">
                    
                    <input type="submit" name="submit" id="submit" value="Добавить!">
                 </form>
+            {%endif%}
+            {%if today_comp%}
+              {%for today_comp in today_comp%}
+                <h1>Изменение анонса соревнования</h1>
+               
+                <form role="form" action="/updateTodayCompMainName" method="post" enctype="multipart/form-data">
+                   
+                   <h3>Изменение наименования чемпионата на главной заставке</h3>
+                   <input type="text" name="updatetodayCompMainName" required="required" placeholder="{{today_comp.todayCompName}}">
+                   <input type="submit" name="submit" id="submit" value="Изменить имя чемпионата">
+                </form>
+               
+                <form role="form" action="/updateTodayCompText" method="post" enctype="multipart/form-data">
+                   
+                   <h3>Введите текст поста</h3>
+                   <textarea rows="10" cols="45" name="newtext_comp" required>{{today_comp.text}}</textarea>
+                   <input type="submit" name="submit" id="submit" value="Изменить текст поста">
+                
+                </form>
+                <form role="form" action="/updateTodayCompImage" method="post" enctype="multipart/form-data">
+                   
+                   <h3>Выберите картинку поста</h3>
+			       <input required name="newimage_comp" type="file"/>
+                   <h3>Сейчас стоит картинка:</h3>
+                   <img src="/article_img/{{today_comp.image_name}}" alt="" height="200px">
+                   <input type="submit" name="submit" id="submit" value="Изменить картинку">
+                </form>
+                
+                <form role="form" action="/updateTodayCompImageHeight" method="post" enctype="multipart/form-data">
+                  
+                   <h3>Высота картинки в пикселях</h3>
+                  <input type="number" name="new_image_height" required="required" placeholder="{{today_comp.image_height}}">
+                   <input type="submit" name="submit" id="submit" value="Изменить высоту">
+                </form>
+                
+                <form role="form" action="/deleteTodayComp" method="post" enctype="multipart/form-data">
+                   
+                   <input type="submit" name="submit" id="submit" value="Удалить данный анонс">
+                </form>
+                {%endfor%}
+            {%endif%}
                 
                 
             </section>
+            
+            
+            
+            
             <section id="content-tab4">
                 <h1>Список всех партнеров</h1>
                     <table class="table table-striped">
@@ -120,7 +193,7 @@
                     <input type="text" name="link_partner" required="required">
                     
                     <h3>Выберите логотип компании</h3>
-			        <input name="logo_partners" type="file"/>
+			        <input required name="logo_partners" type="file"/>
                    
                     <h3>Высота логотипа</h3>
 			        <input type="text" name="height" required="required">
@@ -130,6 +203,72 @@
 
                     <input type="submit" name="submit" id="submit" value="Добавить!">
                 </form> 
+            </section>
+            
+            <section id="content-tab5">
+                <h1>Контенер документов</h1> 
+                <h2>Добавить документ</h2>
+                <form role="form" action="/addDocument" method="post" enctype="multipart/form-data">
+                    
+                    <h3>Введите имя документа, отображаемое на сайте</h3>
+                    <input type="text" name="name_on_site" required="required"><br>
+                    
+                    <h3>Выберите файл документа</h3>
+                    <h4>Имя файла должно быть на англ языке без пробелов, это имя не будет отбражено на сайте</h4>                    
+                    <input required name="document" type="file"/><br><br>
+                    
+                    <input type="submit" name="submit" id="submit" value="Добавить!">
+                
+                </form>
+                
+                <h2>Список добавленных документов</h2>
+                <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Имя на сайте</th>
+                            <th></th>
+                        </tr>
+                    {%for doc in documents%}
+                        <tr>
+                            <td>{{doc.id}}</td>
+                            <td>{{doc.name}}</td>
+                            <td>{{doc.name_on_site}}</td>
+                            <td><a href="/deleteDocument/{{doc.id}}"> Удалить</a></td>
+                    {%endfor%}
+                        </tr>
+                </table>
+                
+            </section>
+            
+            <section id="content-tab6">
+                <h1>контенер о нас</h1>
+                
+            </section>
+            
+            <section id="content-tab7">
+                <h1>контакты админов не доделал</h1>
+                
+                
+            </section>
+            
+            <section id="content-tab8">
+                <h1>Список зарегистрированных пользователей</h1>
+                
+                <table class="table table-striped">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    {%for ue in useremail%}
+                        <tr>
+                            <td>{{ue.username}}</td>
+                            <td>{{ue.email}}</td>
+                            <td><a href="/deleteUser/{{ue.username}}"> Удалить</a></td>
+                    {%endfor%}
+                        </tr>
+                </table>
+                
             </section>
         </div>
 </div>

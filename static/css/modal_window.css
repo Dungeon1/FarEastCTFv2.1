@@ -249,7 +249,6 @@ input::-ms-clear{
   border-radius: 0.25em;
   /* prevent click and touch events */
   pointer-events: none;
-  visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 0.2s 0, visibility 0 0.2s;
   -moz-transition: opacity 0.2s 0, visibility 0 0.2s;
@@ -320,6 +319,13 @@ input::-ms-clear{
 .cd-form-bottom-message a {
   color: #FFF;
   text-decoration: underline;
+}
+
+.captcha{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (min-width: 1170px) {

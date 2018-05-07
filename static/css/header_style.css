@@ -15,6 +15,9 @@
     margin-left: 10px;
     
 }
+.header_wraper nav a img{
+    height: 70px;
+}
 .header_wraper nav li{
     font-family: 'Oswald', sans-serif;
     margin-left: 10px;
@@ -93,6 +96,7 @@
 .header_wraper .social_links li{
     margin-right: 30px; 
 }
+
 
 /***********************БУРГЕР*****************************/
 #menu_trigger{
@@ -188,6 +192,9 @@
     #menu_trigger{
         display: block;
     }
+    .header_wraper nav a img{
+        height: 60px;
+    }
     .header_wraper nav .main_navigation{
         position: absolute;
         flex-direction: column;
@@ -196,10 +203,12 @@
         visibility:hidden;
         opacity:0;
         transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+        display: none;
         top: 80px;
         width: 280px;
         background-color: #e8e8e8; 
         transition: .6s;
+        
     }
     .header_wraper>nav>.main_navigation>li:first-child{
         border-top: 1px solid #b9b9b9;
@@ -225,12 +234,16 @@
         visibility:visible;
         opacity:1;
         transition-delay:0s;
+        display: block;
     }
     .header_wraper nav .main_navigation .sub_main_nav{
         position: inherit;
         border-left: none;
         visibility:visible;
         opacity:1;
+    }
+    .header_wraper .social_links li:last-child{
+    margin-right: 0px; 
     }
     /*ДОБАВИТЬ В JS ЧТОБЫ САБМЕНЮ ТОЖЕ ПОЛНОСТЬЮ СКРЫВАЛОСЬ*/
     .header_wraper nav .main_navigation .sub_main_nav li{

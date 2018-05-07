@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% include 'includes/_another_header.html' %}
+    <section_1 id="main">
+         <div class="page_news_list main_page">
+             <div class="main_page_text">
+                <div class="fareastctf_h1">
+                   <h1><span>FAREAST</span><span>CTF</span></h1>
+                </div>
+                <p>Первая на Дальнем Востоке<br>площадка для проведения чемпионатов<br>по компьютерной безопасности</p>
+             </div>
+         </div>   
+    </section_1> 
+    
+    <section_documents>
+        <div class="contener_documents">
+           <h1>Необходимые документы</h1>
+            <table class="table_document">
+               {%for doc in documents%}
+                <tr><!--строка-->
+                    <td>
+                       {%if doc.extension=='pdf'%}
+                        <img src="/img/document_pdf.svg" alt="" height="30px">
+                       {%elif doc.extension=='doc'or'docx'%}
+                        <img src="/img/document_word.svg" alt="" height="30px">
+                       {%else%}
+                        <img src="/img/document.svg" alt="" height="30px">
+                       {%endif%}   
+                    </td>
+                    <td>
+                        <a href="documents/{{doc.name}}" target="_blank">{{doc.name_on_site}}</a>
+                    </td>
+                </tr>
+               {%endfor%}
+           </table>
+        </div>
+    </section_documents>
+
+    
+
+
+
+{% endblock %}

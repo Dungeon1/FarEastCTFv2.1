@@ -1,12 +1,12 @@
 .containerSettings {
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 25px 10px 0;
     margin-bottom: 100px;
 }
 
 .containerSettings>h1 {
-    padding: 50px 0;
+    padding: 20px 0;
     font-weight: 400;
     text-align: center;
 }
@@ -96,7 +96,7 @@
 
 .tabs > input:checked + label {
     color: #555;
-    border-top: 1px solid #009933;
+    border-top: 2px solid #417777;
     border-bottom: 1px solid #fff;
     background: #fff;
 }
@@ -105,7 +105,11 @@
 #tab1:checked ~ #content-tab1,
 #tab2:checked ~ #content-tab2,
 #tab3:checked ~ #content-tab3,
-#tab4:checked ~ #content-tab4 {
+#tab4:checked ~ #content-tab4,
+#tab5:checked ~ #content-tab5,
+#tab6:checked ~ #content-tab6,
+#tab7:checked ~ #content-tab7,
+#tab8:checked ~ #content-tab8{
     display: block;
 }
 /* Убираем текст с переключателей 
@@ -113,12 +117,12 @@
 */
 
 @media screen and (max-width: 680px) {
-    .tabs > label {
-        font-size: 0;
-    }
     .tabs > label:before {
         margin: 0;
         font-size: 18px;
+    }
+    .tabs > label {
+    display: block;
     }
 }
 /* Изменяем внутренние отступы 

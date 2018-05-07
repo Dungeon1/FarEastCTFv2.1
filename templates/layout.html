@@ -3,34 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="это первые на Дальнем Востоке межрегиональные открытые командные соревнования в области информационной безопасности формата CTF для школьников и студентов."/>
+    <meta name="keywords" content="ctf, fareast, far, east, russia, khabarovsk, fareastctf, hack, information security, ctftime"/>
+    <meta name="owner" content="fareastctf@pnu.edu.ru"/>
+    <meta name="robots" content="index,follow"/>   
+    <meta name="theme-color" content="#417777">
     <title>FarEastCTF</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header_style.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/modal_window.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tabsPrivateRoomAdmin.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/checkbox.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/priloader.css') }}" type="text/css"/>
+    {% include 'includes/_google_analytics.html' %}
+    {% include 'includes/_yandex_metrica.html' %}
    
 </head>
-  
+ 
   <body>
-  <div id="main_up"></div><!--якорь-->
-    <!--/header-->
-    <a href="#main_up" id="up"><div></div></a><!--якорная ссылка-->
   
+    <div class="loader_contener">
+      <div class="e-loadholder">
+        <div class="m-loader">
+            <span class="e-text">FarEastCTF</span>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.js')}}"></script>
+
+    <script>
+        $(window).on('load', function () {
+            $preloader = $('.loader_contener');
+            $loader = $('.e-loadholder');
+            $loader.fadeOut();
+            $preloader.delay(350).fadeOut('slow');
+            $('html').css('overflow-y', 'auto');
+        });
+    </script>
+
   
-  
-  
-   
+  <div id="main_up"></div>
+
+  <a href="#main_up" id="up"><div></div></a>
+
       {% block body %}
       {% endblock %}
-    
+
+
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
-<script src='js/jquery-3.3.1.js'></script>
+
 <!--Меню-->
-<script type="text/javascript" src="js/menu.js"></script>
+<script src="{{ url_for('static', filename='js/menu.js')}}"></script>
 <!--modal window-->
-<script type="text/javascript" src="js/modal_window.js"></script>
+<script src="{{ url_for('static', filename='js/modal_window.js')}}"></script>
+<!--ajax-->
+<script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+
 <!---Плавная прокрутка до якоря-->
 <script type="text/javascript">
     $(document).ready(function(){
@@ -44,6 +79,7 @@
         });
     });
 </script>
+
 <!--Исчезновение кнопки Up при прокрутке-->
 <script type="text/javascript">
     $(function() {
@@ -60,8 +96,8 @@
         });
     });
 </script>
-<script type="text/javascript" src="js/gallery.js"></script>
-<script type="text/javascript" src="js/vanilla-tilt.min.js"></script>
-
+<script src="{{ url_for('static', filename='js/gallery.js')}}"></script>
+<script src="{{ url_for('static', filename='js/vanilla-tilt.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/block.js')}}"></script>
 </body>
 </html>
